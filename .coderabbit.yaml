@@ -27,6 +27,10 @@ reviews:
           - Check for proper escaping and sanitization of data to prevent security vulnerabilities.
           - Guarantee compatibility with the latest version of WordPress, avoiding deprecated functions or features.
 
+        For any `register_post_meta` calls, ensure the following:
+          - 'show_in_rest' is set to true for REST API visibility and support for the real-time collaboration functionality.
+          - 'type' is correctly defined (e.g., 'string', 'integer', 'boolean') according to the expected data type.
+
         **Output requirements for fixes**
           - If you identify an issue that can be fixed locally, include a GitHub Suggested Change block using:
             ```suggestion
