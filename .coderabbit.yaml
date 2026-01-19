@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+tone_instructions: >
+  Provide actionable fixes with GitHub Suggested Change blocks (```suggestion) containing exact, committable code.
+  Keep suggestions minimal and compile-safe. Explain if exact code cannot be provided.
+
+reviews:
+  # optional: tends to be more direct/more “do this” than “consider…”
+  profile: assertive
+  request_changes_workflow: true
+  collapse_walkthrough: true
+  estimate_code_review_effort: false
+  suggested_labels: false
+  in_progress_fortune: false
+  high_level_summary_in_walkthrough: true
+  poem: false
+  auto_review:
+    ignore_title_keywords:
+      - '[WIP]'
+      - '[DO NOT MERGE]'
+    base_branches:
+      - .*
+  path_instructions:
+    - path: "**/*.{js,ts,tsx,jsx,php}"
+      instructions: |
+        In addition to default instructions, perform a detailed review of the provided code with following key aspects in mind:
+          - Verify compliance with WordPress and WordPress VIP coding standards and best practices.
+          - Check for proper escaping and sanitization of data to prevent security vulnerabilities.
+          - Guarantee compatibility with the latest version of WordPress, avoiding deprecated functions or features.
+
+        **Output requirements for fixes**
+          - If you identify an issue that can be fixed locally, include a GitHub Suggested Change block using:
+            ```suggestion
+            <exact replacement code>
+            ```
+          - Make the suggestion directly committable: exact syntax, correct indentation, and valid PHP/JS.
+          - Prefer one suggestion per comment (small, focused diffs). Avoid “pseudo-code” or hand-wavy guidance.
+          - Only fall back to plain instructions when multiple files or larger refactors are required.
+
+chat:
+  art: false
+  auto_reply: false
