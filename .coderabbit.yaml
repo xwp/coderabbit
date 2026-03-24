@@ -2,6 +2,7 @@
 tone_instructions: >
   Provide actionable fixes with GitHub Suggested Change blocks (```suggestion) containing exact, committable code.
   Keep suggestions minimal and compile-safe. Explain if exact code cannot be provided.
+  Consolidate all feedback for a given file into a single pass.
 
 reviews:
   # optional: tends to be more direct/more “do this” than “consider…”
