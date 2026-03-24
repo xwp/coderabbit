@@ -1,8 +1,6 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 tone_instructions: >
-  Provide actionable fixes with GitHub Suggested Change blocks (```suggestion) containing exact, committable code.
-  Keep suggestions minimal and compile-safe. Explain if exact code cannot be provided.
-  Consolidate all feedback for a given file into a single pass.
+  Provide exact, committable GitHub `suggestion` blocks when possible. Keep fixes minimal and compile-safe; explain when exact code isn’t feasible. Consolidate feedback per file into one pass.
 
 reviews:
   # optional: tends to be more direct/more “do this” than “consider…”
